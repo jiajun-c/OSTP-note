@@ -25,6 +25,7 @@ int main(int argc,char *argv[]) {
     }
 }
 ```
+dd#include <stdio.h>
 
 If you run it like this
 
@@ -43,5 +44,43 @@ It will output "A" and "B" alternatively. It seems like you have many cpu work a
 In fact, in the further chapters of this book, it will discuss the similar things.
 
 ## 2. The virtial RAM
+
+It is similar to the virtual cpu
+
+```c
+#include <stdio.h>                                                                                                                          
+#include <stdio.h>                                                                                                                               
+#include <stdlib.h>                                                                                                                              
+#include <sys/time.h>                                                                                                                            
+#include <assert.h>                                                                                                                              
+#include <time.h>                                                                                                                                
+#include <unistd.h>                                                                                                                             
+#include <string.h>                                                                                                                              
+#include <strings.h>                                                                                                                             
+#include <stdbool.h>                                                                                                                             
+int main(int argc,char *argv[]) {                                                                                                                
+    int *p = malloc(sizeof(int));                                     
+    assert(p!=NULL);                                                   
+    printf("(%d) memory address of p: %08x\n",getpid(),(unsigned)p);    
+    *p = 0;                                                                                                                                      
+    while(1) {                                                                                                                                   
+        sleep(1);                                                                                                                                
+        *p = *p + 1;                                                                                                                            
+        printf("(%d) p:%d\n",getpid(),*p);                                                                                                       
+    }                                                                                                                                           
+    return 0;                                                                                                                                   
+}                                                                                                                                                
+``` 
+
+If it works many program at the same time, it will share the same memory
+
+## 3. The concurrency
+
+If you use manys threads at the same time. It will have some magic things.
+
+## 4. The persistence 
+The hard dirve is the normal way to storage the message.
+
+
 
 

@@ -6,5 +6,6 @@ int main() {
     char *use[] = {"/home/halfstar/note/OSTP/chapter5/get",NULL};
     execv(use[0],use);
     printf("Ending\n");
-    return 0;
+    return 0;;
+
 }

@@ -41,4 +41,35 @@ The result is that the only the result of the child process can be shown.
 # 3. print the hello world with the son and the current process 
 You can use the sleep
 
-# 4. 
+# 5 
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+    int c = fork();
+    if(c > 0) {
+        wait(NULL);
+        printf("It is in the parent pid\n"); 
+    }
+    else {
+        int ge = wait(NULL);
+        printf(" son is %d\n",getpid());
+        printf("the wait get %d\n",ge);
+    }
+}
+```
+The son will still go the first,and the ge is  -1
+
+
+## 6 
+if you use the pidwait(0) is will waiting for the son process to run. 
+
+## 7
+It will not ouput.It will be input to the block cache. 
+
+## 8
+
+
